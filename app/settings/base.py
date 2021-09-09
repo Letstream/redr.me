@@ -146,7 +146,7 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_REGEX_WHITELIST = [
     r"^http(s)?:\/\/localhost(:[0-9]+)?\/?$",
-    
+    r"^http(s)?:\/\/redr.me?\/?$",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
@@ -158,6 +158,7 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 CSRF_TRUSTED_ORIGINS = [
     "localhost",
+    "redr.me"
 ]
 
 USE_SENTRY = True if env('USE_SENTRY') == 'True' else False
@@ -165,16 +166,15 @@ USE_SENTRY = True if env('USE_SENTRY') == 'True' else False
 if USE_SENTRY:
     import sentry_sdk
     from sentry_sdk.integrations.django import DjangoIntegration
-    from sentry_sdk.integrations.celery import CeleryIntegration
 
     sentry_sdk.init(
         dsn=env('SENTRY_DSN'),
-        integrations=[DjangoIntegration(), CeleryIntegration()],
+        integrations=[DjangoIntegration(), ],
         environment=env('ENVIRONMENT'),
         release=APPLICATION_VERSION,
-        traces_sample_rate=1.0,
+        traces_sample_rate=0,
 
         # If you wish to associate users to errors (assuming you are using
         # django.contrib.auth) you may enable sending PII data.
-        send_default_pii=True
+        send_default_pii=False
     )
