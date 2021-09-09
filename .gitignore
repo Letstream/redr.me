@@ -1,0 +1,10 @@
+*/__pycache__
+*/*/__pycache__
+venv
+db.sqlite3
+*/.vscode/*
+.env
+*.code-workspace
+**/migrations/*
+app/.env
+temp/

@@ -1,0 +1,40 @@
+## Redr.me | Open Source URL Redirection Service focused on Anonymity
+An Open Source and simple to Use Self Hosted Redirection Service made in Django focused on Anonymity.
+
+To use you can visit: https://redr.me/
+
+## Requirements
+Make sure you have [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/latest/installing/#installing-with-get-pip-py) installed. Python version >= 3.6 is required.
+
+The Project uses PostgreSQL >= 11 as Database Host.
+
+You also need Django, and other dependencies. These can be installed by running:
+
+```
+pip install -r requirements.txt 
+```
+### Variables
+
+After you have installed the packages mentioned above, create an `.env` file at `app/settings/` or provide the following environment variables as available in `app/settings/sample.env`
+
+### Setting up Database
+
+After you have defined the variables mentioned above, navifate to your `app` folder with your terminal and run:
+```
+python manage.py migrate
+python manage.py makemigrations
+python manage.py migrate
+```
+### Running server
+Lastly, you can start the server by running:
+```
+python manage.py runserver
+```
+
+### Coming Soon
+
+- Deployment Configuration and Guidelines
+- Support to edit the Links
+- Link Stats Dashboard
+- Integration with LetStat (Launching soon)
+- API and Contribution Docs
