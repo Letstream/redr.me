@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # INSTALL DEPENDECIES
 RUN apt-get update && apt-get -y upgrade
-RUN apt-get install -y python3.6 python3-pip python3.6-dev tzdata build-essential python3-setuptools python3-wheel python3-cffi
+RUN apt-get install -y python3.6 python3-pip python3.6-dev tzdata build-essential python3-setuptools python3-wheel python3-cffi libpq-dev
 
 RUN adduser --disabled-password --gecos "" docker_deploy_user
 
@@ -20,13 +20,12 @@ WORKDIR /home/docker_deploy_user
 
 # Install Python Requirements
 COPY --chown=docker_deploy_user:docker_deploy_user ./requirements.txt /home/docker_deploy_user/app/requirements.txt
-WORKDIR /home/docker_deploy_user/app/requirements
-RUN python3.6 -m pip install --user -r production.txt
+WORKDIR /home/docker_deploy_user/app
+RUN python3.6 -m pip install --user -r requirements.txt
 ENV PATH=$PATH:/home/docker_deploy_user/.local/bin
 
 # COPY SOURCE
 COPY --chown=docker_deploy_user:docker_deploy_user . /home/docker_deploy_user/app
-WORKDIR /home/docker_deploy_user/app
 
 USER root
 RUN chown docker_deploy_user:docker_deploy_user /home/docker_deploy_user/app/container-run.sh
