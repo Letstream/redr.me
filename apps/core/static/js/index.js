@@ -2,7 +2,7 @@ var app = new Vue({
   ...common_vue_config,
   data: {
     link: {
-      target_url: null
+      target_url: "https://"
     },
 
     public_url: null,
@@ -49,7 +49,7 @@ var app = new Vue({
     },
     reset_state() {
       this.link = {
-        target_url: null
+        target_url: "https://"
       }
       this.api_errors = {}
       this.submit_disabled = false

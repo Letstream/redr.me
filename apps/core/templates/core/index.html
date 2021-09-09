@@ -9,8 +9,11 @@
     <b-row class="text-left">
         
         <!-- URL -->
-        <b-col cols="12" md="12">
-            <b-form-group>
+        <b-col cols="12" md="12" class="text-center">
+            <b-form-group
+                label="Enter URL to Shorten"
+                description="Enter proper URL including http:// or https://"
+            >
                 <b-input-group>
                     <template #append>
                         <b-button type="submit" :disabled="submit_disabled" class="btn-primary">
@@ -25,6 +28,7 @@
                         min="0"
                         size="lg"
                         autofocus
+                        type="url"
                     ></b-form-input>
                 </b-input-group>
             </b-form-group>
