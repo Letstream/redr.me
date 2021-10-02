@@ -49,7 +49,11 @@
                                 <img src="{% static 'images/external.png' %}" class="btn-icon" />
                             </a>
                         </b-button>
+                        <b-button type="button" @click="editCodeForm()" class="btn-secondary">
+                            <img src="{% static 'images/edit.png' %}" class="btn-icon" />
+                        </b-button>
                     </template>
+
                     <b-form-input
                         id="public-url"
                         :value="public_url"
@@ -58,6 +62,31 @@
                     ></b-form-input>
                 </b-input-group>
             </b-form-group>
+
+            <b-form-group
+                v-if="edit"
+                label="Edit Code"
+                label-for="code"
+            >
+                <b-input-group>
+                    <template #append>
+                        <b-button type="button" class="btn-primary" @click="updateCode()">
+                            Edit Code
+                        </b-button>
+                    </template>
+                    <b-form-input
+                        id="code"
+                        v-model="newcode"
+                        placeholder="Enter new code"
+                        required
+                        min="0"
+                        size="lg"
+                        autofocus
+                        type="text"
+                    ></b-form-input>
+                </b-input-group>
+            </b-form-group>
+
         </b-col>
     </b-row>
 </b-form>

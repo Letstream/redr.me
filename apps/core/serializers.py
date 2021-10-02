@@ -25,3 +25,11 @@ class LinkPublicSerializer(serializers.ModelSerializer):
         read_only_fields = [
             'target_url', 'hits'
         ]
+
+class LinkEditSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Link
+        fields = [
+            'code'
+        ]

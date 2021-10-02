@@ -21,6 +21,11 @@ urlpatterns = [
         name="api_link_retrieve",
     ),
     re_path(
+        r"^api/edit/(?P<code>[0-9a-z]+)/$",
+        api_views.LinkEditAPIView.as_view(),
+        name="api_link_edit",
+    ),
+    re_path(
         r"(?P<code>[0-9a-z]+)/?$",
         views.RedirectCodeView.as_view(),
         name="redirect",

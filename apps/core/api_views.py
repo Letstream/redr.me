@@ -1,10 +1,13 @@
-from django.db.models.expressions import F
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
 from rest_framework.exceptions import NotFound
 
 from .models import Link
-from .serializers import LinkSerializer, LinkPublicSerializer
+from .serializers import (
+    LinkSerializer,
+    LinkPublicSerializer, 
+    LinkEditSerializer
+)
 
 
 class LinkCreateAPIView(generics.CreateAPIView):
@@ -26,3 +29,9 @@ class LinkRetrieveAPIView(generics.RetrieveAPIView):
         except self.model.DoesNotExist:
             raise NotFound()
     
+class LinkEditAPIView(generics.UpdateAPIView):
+    model = Link
+    queryset = model.objects.all()
+    serializer_class = LinkEditSerializer
+    lookup_field = 'code'
+    permission_classes = [AllowAny, ]
