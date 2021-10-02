@@ -1,0 +1,52 @@
+{% extends 'core/_base_layout.html' %}
+{% load static %}
+
+{% block content_right %}
+
+<table>
+    <tr>
+        <td>Created On</td>
+        <td>Code</td>
+        <td>Target URL</td>
+        <td>Hits</td>
+        <td>Token</td>
+    </tr>
+    {% for d in data.values %}
+    <tr>
+        <td>{{ d.created_on }}</td>
+        <td id="_code">{{ d.code }}</td>
+        <td>{{d.target_url}}</td>
+        <td>{{d.hits}}</td>
+        <td>{{d.token}}</td>
+    </tr>
+    {%endfor%}
+</table>
+
+<b-form-group
+        label="Edit Code"
+        label-for="code"
+    >
+        <b-input-group>
+            <template #append>
+                <b-button type="button" class="btn-primary" @click="updateCode()">
+                    Edit Code
+                </b-button>
+            </template>
+            <b-form-input
+                id="code"
+                v-model="newcode"
+                placeholder="Enter new code"
+                required
+                min="0"
+                size="lg"
+                autofocus
+                type="text"
+            ></b-form-input>
+        </b-input-group>
+    </b-form-group>
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/index.js' %}" ></script>
+{% endblock %}
