@@ -33,5 +33,5 @@ class LinkEditAPIView(generics.UpdateAPIView):
     model = Link
     queryset = model.objects.all()
     serializer_class = LinkEditSerializer
-    lookup_field = 'code'
+    lookup_field = 'token'
     permission_classes = [AllowAny, ]

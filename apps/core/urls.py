@@ -21,7 +21,7 @@ urlpatterns = [
         name="api_link_retrieve",
     ),
     re_path(
-        r"^api/edit/(?P<code>[0-9a-z]+)/$",
+        r"^api/edit/(?P<token>[0-9a-f-]+)/$",
         api_views.LinkEditAPIView.as_view(),
         name="api_link_edit",
     ),

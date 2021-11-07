@@ -17,7 +17,7 @@
         <td id="_code">{{ d.code }}</td>
         <td>{{d.target_url}}</td>
         <td>{{d.hits}}</td>
-        <td>{{d.token}}</td>
+        <td id="_token">{{d.token}}</td>
     </tr>
     {%endfor%}
 </table>
@@ -48,5 +48,5 @@
 {% endblock %}
 
 {% block js %}
-    <script src="{% static 'js/index.js' %}" ></script>
+    <script src="{% static 'js/dashboard.js' %}" ></script>
 {% endblock %}
