@@ -1,4 +1,5 @@
-from django.shortcuts import get_object_or_404, redirect
+from django.http.response import HttpResponseNotFound
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View, generic
 
 from .models import Link
@@ -16,3 +17,18 @@ class RedirectCodeView(View):
         instance.add_hit()
 
         return redirect(instance.target_url, permanent=False)
+
+
+class DashboardView(generic.TemplateView):
+
+    template_name = "core/dashboard.html"
+
+    def get(self, request, token, *args):
+        try:
+            instance = Link.objects.filter(token=token)
+            print(instance)
+        except:
+            return HttpResponseNotFound('<h1>Token not found</h1>')
+        else:
+            context = {'data': instance}
+            return render(self.request, self.template_name, context)
