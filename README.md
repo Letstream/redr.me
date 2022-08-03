@@ -38,3 +38,10 @@ python manage.py runserver
 - Link Stats Dashboard
 - Integration with LetStat (Launching soon)
 - API and Contribution Docs
+
+### Contributors
+<a href="https://github.com/letstream/redr.me/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=letstream/redr.me" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
