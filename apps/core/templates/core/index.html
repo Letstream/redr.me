@@ -49,10 +49,16 @@
                                 <img src="{% static 'images/external.png' %}" class="btn-icon" />
                             </a>
                         </b-button>
+                        <b-button type="button" class="btn-secondary">
+                            <a :href="dashboard" target="_blank" class="h-100">
+                                <img src="{% static 'images/dashboard.png' %}" class="btn-icon" />
+                            </a>
+                        </b-button>
                     </template>
                     <b-form-input
                         id="public-url"
                         :value="public_url"
+                        :value="dashboard"
                         size="lg"
                         readonly
                     ></b-form-input>

@@ -6,7 +6,7 @@ var app = new Vue({
     },
 
     public_url: null,
-    
+    dashboard: null,
     submit_disabled: false,
     api_errors: {}
   },
@@ -30,6 +30,7 @@ var app = new Vue({
         (res) => {
           this.submit_disabled = false
           this.public_url = `${window.location.protocol}//${window.location.host}/${res.code}`
+          this.dashboard = `${window.location.protocol}//${window.location.host}/dashboard/${res.token}`
           this.reset_state()
         },
         (err) => {
@@ -56,7 +57,7 @@ var app = new Vue({
     },
     copy(ele) {
       copy_text(ele, this)
-    }
+    } 
   }
 })
 Vue.use(window.BootstrapVue)
