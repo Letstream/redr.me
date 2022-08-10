@@ -31,7 +31,7 @@ class Link(TimestampModel, HitsMixin):
     id = models.BigAutoField(primary_key=True)
 
     code = models.CharField(max_length=10, unique=True, db_index=True)
-    target_url = models.URLField()
+    target_url = models.URLField(max_length=2000)
 
     user_email = models.EmailField(null=True)
     token = models.UUIDField(default=uuid.uuid4)
