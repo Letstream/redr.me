@@ -3,6 +3,17 @@ An Open Source and simple to Use Self Hosted Redirection Service made in Django 
 
 To use you can visit: https://redr.me/
 
+## Features
+- No Tracking and Instant Redirection
+- Open Source
+- Easy to Self Host and Customise
+- Open API for redr.me Official Instance
+
+## Components
+
+- API Core [This Project]
+- [Frontend](https://github.com/letstream/redr.me-frontend)
+
 ## Requirements
 Make sure you have [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/latest/installing/#installing-with-get-pip-py) installed. Python version >= 3.6 is required.
 
@@ -24,6 +35,7 @@ After you have defined the variables mentioned above, navifate to your `app` fol
 python manage.py migrate
 python manage.py makemigrations
 python manage.py migrate
+python manage.py createcachetable
 ```
 ### Running server
 Lastly, you can start the server by running:
@@ -34,8 +46,6 @@ python manage.py runserver
 ### Coming Soon
 
 - Deployment Configuration and Guidelines
-- Support to edit the Links
-- Link Stats Dashboard
 - Integration with LetStat (Launching soon)
 - API and Contribution Docs
 

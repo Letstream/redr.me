@@ -47,7 +47,6 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -144,10 +143,7 @@ REST_FRAMEWORK = {
 
 # CORS
 
-CORS_ORIGIN_REGEX_WHITELIST = [
-    r"^http(s)?:\/\/localhost(:[0-9]+)?\/?$",
-    r"^http(s)?:\/\/redr.me?\/?$",
-]
+CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 
 APPEND_SLASH = False
@@ -155,11 +151,6 @@ APPEND_SLASH = False
 FILE_UPLOAD_PERMISSIONS = 0o644
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
-CSRF_TRUSTED_ORIGINS = [
-    "localhost",
-    "redr.me"
-]
 
 USE_SENTRY = True if env('USE_SENTRY') == 'True' else False
 
@@ -178,3 +169,5 @@ if USE_SENTRY:
         # django.contrib.auth) you may enable sending PII data.
         send_default_pii=False
     )
+
+FRONTEND_URL = env('FRONTEND_URL')
