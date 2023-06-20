@@ -3,7 +3,7 @@ import os
 import environ
 
 # Application Version
-APPLICATION_VERSION = "1.0.0"
+APPLICATION_VERSION = open("%s/VERSION" % (environ.Path(__file__) - 3)).read()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
